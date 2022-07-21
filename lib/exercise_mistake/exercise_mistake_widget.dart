@@ -1,9 +1,10 @@
+import 'package:camera/camera.dart';
+import 'package:coach_bot/pose_detector/pose_detector.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 class ExerciseMistakeWidget extends StatefulWidget {
   const ExerciseMistakeWidget({Key key}) : super(key: key);
@@ -14,6 +15,7 @@ class ExerciseMistakeWidget extends StatefulWidget {
 
 class _ExerciseMistakeWidgetState extends State<ExerciseMistakeWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  List<CameraDescription> cameras;
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +123,13 @@ class _ExerciseMistakeWidgetState extends State<ExerciseMistakeWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 24),
               child: FFButtonWidget(
-                onPressed: () async {},
+                onPressed: () async {
+                  cameras = await availableCameras();
+                  await Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => PoseDetectorWidget(cameras))
+                  );
+                },
                 text: 'Continue to Workout',
                 options: FFButtonOptions(
                   width: 300,
