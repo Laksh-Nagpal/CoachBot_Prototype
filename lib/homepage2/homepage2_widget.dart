@@ -145,7 +145,7 @@ class _Homepage2WidgetState extends State<Homepage2Widget> {
                                           Expanded(
                                             child: ListView(
                                               padding: EdgeInsets.zero,
-                                              shrinkWrap: true,
+                                              shrinkWrap: false,
                                               scrollDirection: Axis.vertical,
                                               children: [
                                                 Padding(
@@ -761,7 +761,7 @@ class _Homepage2WidgetState extends State<Homepage2Widget> {
                                           Expanded(
                                             child: ListView(
                                               padding: EdgeInsets.zero,
-                                              shrinkWrap: true,
+                                              shrinkWrap: false,
                                               scrollDirection: Axis.vertical,
                                               children: [
                                                 Padding(
